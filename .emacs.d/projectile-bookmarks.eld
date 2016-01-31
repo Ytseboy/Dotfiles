@@ -1,1 +1,0 @@
-("~/Projects/Go/src/github.com/ytseboy/helloworld/")

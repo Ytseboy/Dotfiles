@@ -1,6 +1,0 @@
-ls
-go build -v
-ls
-./helloworld 
-exit
-exit
