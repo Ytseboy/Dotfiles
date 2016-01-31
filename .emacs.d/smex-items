@@ -1,0 +1,22 @@
+
+;; ----- smex-history -----
+(
+ package-install
+ list-packages
+ company-mode
+ eval-defun
+ dired
+ cd
+ 5x5
+)
+
+;; ----- smex-data -----
+(
+ (dired . 1)
+ (package-install . 6)
+ (eval-defun . 1)
+ (company-mode . 4)
+ (company-complete . 3)
+ (company-ignore . 1)
+ (list-packages . 1)
+)

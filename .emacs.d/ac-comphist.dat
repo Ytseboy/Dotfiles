@@ -1,0 +1,148 @@
+((("smex" .
+   [3 0 0 0])
+  ("rainbow-delimiters" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("autopair" .
+   [0 0 0 0 0 0 1 0])
+  ("ido-use-virtual-buffers" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ido-enable-flex-matching" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ido-mode" .
+   [1 0 0 0 0 0 0 0])
+  ("indicate-empty-lines" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("nil" .
+   [1 0 0])
+  ("initial-scratch-message" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("newline-and-indent" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("y-or-n-p" .
+   [0 0 0 0 0 0 0 1])
+  ("yes-or-no-p" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("defalias" .
+   [1 0 0 0 0 0 0 0])
+  ("TempFile" .
+   [1 0 0 0 0 0 0 0])
+  ("ioutil" .
+   [0 0 2 0 0 0])
+  ("guide-key-mode" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("guide-key" .
+   [0 0 0 0 0 1 0 0 0])
+  ("discover-my-major" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("gofmt-command" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("setq" .
+   [6 0 0 0])
+  ("window-dot" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("helm-M-x" .
+   [0 0 0 0 0 0 0 1])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 2 1 1 1 1])
+  ("helm-config" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("helm" .
+   [1 0 0 0])
+  ("string-match" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("not" .
+   [2 0 0])
+  ("if" .
+   [1 0])
+  ("go-flymake" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("require" .
+   [7 0 0 0 0 0 1])
+  ("load-path" .
+   [0 0 0 0 0 0 0 2 0])
+  ("add-to-list" .
+   [0 0 0 0 0 0 0 0 0 2 0])
+  ("before-save-hook" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("godef-jump-other-window" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("kbd" .
+   [7 0 0])
+  ("local-set-key" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("Fprint" .
+   [0 0 0 0 0 1])
+  ("caralho" .
+   [1 0 0 0 0 0 0])
+  ("0" .
+   [1])
+  ("Printf" .
+   [2 0 0 0 0 0])
+  ("Println" .
+   [2 0 0 0 0 0 4])
+  ("main" .
+   [3 0 0 0])
+  ("compile-command" .
+   [0 0 0 0 0 0 0 0 0 0 1 1 0 0 2])
+  ("set" .
+   [2 0 0])
+  ("make-local-variable" .
+   [0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0])
+  ("build" .
+   [1 0 0 0 0])
+  ("add-hook" .
+   [0 0 0 0 0 0 2 0])
+  ("go-mode-hook" .
+   [0 0 0 0 0 0 0 0 0 1 0 1])
+  ("my-go-mode-hook" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("gofmt-before-save" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("var" .
+   [2 0 0])
+  ("batata" .
+   [1 0 0 0 0 0])
+  ("test" .
+   [4 0 0 0])
+  ("tes111" .
+   [1 0 0 0 0 0])
+  ("Kikkeli" .
+   [0 0 1 0 0 0 0])
+  ("batatoin" .
+   [1 0 0 0 0 0 0 0])
+  ("go-flycheck" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("Print" .
+   [0 0 0 0 3])
+  ("Copy" .
+   [0 0 0 1])
+  ("t" .
+   [2])
+  ("projectile-global-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("autoload" .
+   [3 0 0 0 0 0 0 0])
+  ("ac-ignoring-prefix-def" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ace-window" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("menu-bar-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("toggle-scroll-bar" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("tool-bar-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("global-hl-line-mode" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("load-theme" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("setq-default" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("when" .
+   [1 0 0 0])
+  ("toggle-indicate-empty-lines" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ReadAll" .
+   [1 0 0 0 0 0 0])
+  ("doremi" .
+   [0 0 0 0 2 0])))
