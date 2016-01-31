@@ -8,6 +8,51 @@
 
 (projectile-global-mode)
 
+(defvar dfrei/packages '(async
+			 autopair
+			 yaml-mode
+			 sr-speedbar
+			 rainbow-delimiters
+			 smex
+			 deft 
+			 use-package
+			 auto-complete
+			 exec-path-from-shell
+			 go-mode
+			 erlang
+			 puppet-mode
+			 magit
+			 paredit
+			 go-autocomplete
+			 go-eldoc
+			 go-flymake 
+			 ac-slime
+			 zenburn-theme
+			 solarized-theme
+			 flycheck
+			 helm
+			 ace-window
+			 guide-key
+			 projectile
+			 helm-projectile
+			 )
+  "Default Packages")
+
+(defun dfrei/packages-installed-p ()
+  (loop for pkg in dfrei/packages
+	when (not (package-installed-p pkg) do (return nil)
+		  finally (return t))))
+
+(unless (dfrei/packages-installed-p)
+  (message "%s" "Refreshing package database")
+  (package-refresh-contents)
+  (dolist (pkg dfrei/packages)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
+
+			  
+
+
 (require 'doremi)
 (global-set-key (kbd "C-x t w") 'doremi)
 
