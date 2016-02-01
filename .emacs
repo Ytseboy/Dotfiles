@@ -6,7 +6,6 @@
    t)
   (package-initialize))
 
-(projectile-global-mode)
 
 (defvar dfrei/packages '(async
 			 autopair
@@ -25,7 +24,6 @@
 			 paredit
 			 go-autocomplete
 			 go-eldoc
-			 go-flymake 
 			 ac-slime
 			 zenburn-theme
 			 solarized-theme
@@ -36,12 +34,12 @@
 			 projectile
 			 helm-projectile
 			 )
-  "Default Packages")
-
+  "default-packages")
+(require 'cl-lib)
 (defun dfrei/packages-installed-p ()
-  (loop for pkg in dfrei/packages
-	when (not (package-installed-p pkg) do (return nil)
-		  finally (return t))))
+  (cl-loop for pkg in dfrei/packages
+	   when (not (package-installed-p pkg)) do (cl-return nil)
+	   finally (cl-return t)))
 
 (unless (dfrei/packages-installed-p)
   (message "%s" "Refreshing package database")
@@ -50,11 +48,6 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
-			  
-
-
-(require 'doremi)
-(global-set-key (kbd "C-x t w") 'doremi)
 
 ;; no menu
 (menu-bar-mode -1)
@@ -113,10 +106,10 @@
 (global-set-key (kbd "C-h C-m") 'discover-my-major)
 (global-set-key (kbd "C-h M-m") 'discover-my-mode)
 
-(setenv "GOPATH" "/home/dfreitas/Projects/Go")
+(setenv "GOPATH" "/home/danfreitas/Projects/Go")
 
 (setq exec-path (cons "/usr/bin/" exec-path))
-(add-to-list 'exec-path "/home/dfreitas/Projects/Go/bin")
+(add-to-list 'exec-path "/home/danfreitas/Projects/Go/bin")
 
 (defun my-go-mode-hook ()
   ;; Using goimports instead of gofmt
@@ -139,7 +132,8 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
 (ac-config-default)
 
-
+;; projectile
+(projectile-global-mode)
 
 (add-to-list 'load-path "~/.emacs.d")
 (require 'go-autocomplete)
