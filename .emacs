@@ -1,10 +1,12 @@
 (when (>= emacs-major-version 24)
   (require 'package)
-  (add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
+  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                           ("marmalade" . "https://marmalade-repo.org/packages/")
+                           ("melpa" . "https://melpa.org/packages/")))
   (package-initialize))
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 
 (defvar dfrei/packages '(async
@@ -12,6 +14,8 @@
 			 yaml-mode
 			 sr-speedbar
 			 rainbow-delimiters
+                         flymake-ruby
+                         inf-ruby 
 			 smex
 			 deft 
 			 use-package
@@ -30,6 +34,7 @@
 			 flycheck
 			 helm
 			 ace-window
+			 volatile-highlights
 			 guide-key
 			 projectile
 			 helm-projectile
@@ -48,6 +53,15 @@
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
+(setq custom-safe-themes t)
+
+(require 'use-package)
+
+;; Highlight changed areads with certain operations
+(use-package volatile-highlights
+	     :commands volatile-highlights-mode
+	     :config
+	     (volatile-highlights-mode t))
 
 ;; no menu
 (menu-bar-mode -1)
@@ -129,20 +143,82 @@
 ;; auto-complete
 (add-to-list 'load-path "~/.emacs.d/elpa/auto-complete")
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
+
 (ac-config-default)
+(use-package auto-complete
+  :init
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
+  :config
+  (ac-config-default))
+
+;; Perl
+(add-to-list 'load-path "~/.emacs.d/pde/lisp")
+(load "pde-load")
+
+;; Ruby
+(require 'robe)
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 ;; projectile
 (projectile-global-mode)
 
 (add-to-list 'load-path "~/.emacs.d")
 (require 'go-autocomplete)
+(use-package go-autocomplete
+  :load-path "~/.emacs.d")
 
 
 ;; flymake
 (add-to-list 'load-path "~/Projects/Go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 
+;;Org mode
+(require 'org)
+;;
+;; Standard key bindings
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+
+;; Headlines
+'("^\\(\\**\\)\\(\\* \\)\\(.*\xa\\)" (1 (org-get-level-face 1))
+  (2 (org-get-level-face 2)) (3 (org-get-level-face 3)))
+
+;; Checkbox
+(defun danfreitas/org-html-checkbox (checkbox)
+  "Format CHECKBOX into HTML."
+  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
+        (off "<span class=\"checkbox\">&#x2610;</span>")
+        (trans "<code>[-]</code>")
+        (t "")))
+
+(defadvice org-html-checkbox (around danfreitas activate)
+  (setq ad-return-value (danfreitas/org-html-checkbox (ad-get-arguments 0))))
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "blue" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "forest green" :weight bold)
+              ("MEETING" :foreground "forest green" :weight bold)
+              ("PHONE" :foreground "forest green" :weight bold))))
+
+(setq org-default-notes-file "~/git/org/refile.org")
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+;;Default templates
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/git/org/refile.org")
+               ("* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
